@@ -67,7 +67,7 @@ public class OrderTest extends BaseTest{
 
         objRentPage.sendRentalDate("09.05.2025");
         objRentPage.setRentalTime();
-        objRentPage.clickCheckBoxColourBlackPearl();
+        objRentPage.clickCheckBoxColourGreyDespair();
         objRentPage.sendComment("Очень жду!");
         objRentPage.clickOrderButton();
         objRentPage.clickOrderButtonYes();

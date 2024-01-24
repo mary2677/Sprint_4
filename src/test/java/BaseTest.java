@@ -3,7 +3,7 @@ import org.junit.Before;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 public class BaseTest {
-    private static final String URL_MAIN = "https://qa-scooter.praktikum-services.ru/";
+
     protected WebDriver driver;
 
     @Before

@@ -18,18 +18,15 @@ public class List extends BaseTest{
     @Test
     public void CheckDropDownListText() {
 
-        ChromeOptions options = new ChromeOptions();
-        driver.get("https://qa-mesto.praktikum-services.ru/");
+        Main_Page objMainPage = new Main_Page(driver);
+        objMainPage.clickCookieButton();
 
-        new Main_Page(driver)
-                .clickCookieButton();
-
-        new MainList(driver)
-                .scrollPageToEndOfList();
+        MainList objMainList = new MainList(driver);
+        objMainList.scrollPageToEndOfList();
 
         for (int i = 0; i < 8; i++) {
-            MainList.clickQuestionArrow(i);
-            MainList.checkTextInOpenPanel(expectedAnswersList[i], i);
+            objMainList.clickQuestionArrow(i);
+            objMainList.checkTextInOpenPanel(expectedAnswersList[i], i);
         }
     }
 }

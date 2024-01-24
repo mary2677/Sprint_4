@@ -45,18 +45,16 @@ public class MainList {
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", lastQuestionArrow);
     }
 
-    /**
-     * Клик по стрелке выпадающего списка
-     */
+    // Клик по стрелке выпадающего списка
+
     public static void clickQuestionArrow(int questionNumber) {
         new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS))
                 .until(ExpectedConditions.elementToBeClickable(By.id(questionsArray[questionNumber])));
         driver.findElement(By.id(questionsArray[questionNumber])).click();
     }
 
-    /**
-     * Проверка текста в открытой панели
-     */
+     // Проверка текста в открытой панели
+
     public static void checkTextInOpenPanel(String expectedText, int answerNumber) {
         new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.id(answersArray[answerNumber])));
@@ -65,13 +63,10 @@ public class MainList {
     }
 
 
-    /**
-     * Клик по кнопке вопроса
-     */
+    // Нажатие на  кнопку вопроса
     public void clickQuestionButton(String questionButtonLocator) {
         new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS))
                 .until(ExpectedConditions.elementToBeClickable(By.id(questionButtonLocator)));
         driver.findElement(By.id(questionButtonLocator)).click();
     }
-
 }

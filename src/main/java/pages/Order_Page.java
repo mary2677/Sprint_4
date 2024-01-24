@@ -9,10 +9,10 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import java.time.Duration;
 import java.time.temporal.ChronoUnit;
 
-// элемнеты страницы
+// элемнеты страницы заказа
 public class Order_Page {
     private  WebDriver driver;
-    private final By ClientfirstName = By.xpath(".//input[@placeholder='* Имя']");
+    private final By ClientFirstName = By.xpath(".//input[@placeholder='* Имя']");
     private final By ClientLastName = By.xpath(".//input[@placeholder='* Фамилия']");
     private final By deliveryAddress = By.xpath(".//input[@placeholder='* Адрес: куда привезти заказ']");
     private final By deliveryMetroStation = By.xpath(".//input[@placeholder='* Станция метро']");
@@ -27,38 +27,33 @@ public class Order_Page {
         new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("ClientLastName")));
     }
-    public Order_Page sendClientFirstName(String firstName) {
-
-        driver.findElement(ClientfirstName).sendKeys(firstName);
-        return this;
+    // заполнение поля Имя
+    public void sendClientFirstName(String firstName) {
+        driver.findElement(ClientFirstName).sendKeys(firstName);
     }
-    public Order_Page sendClientSecondName(String firstName) {
+    // заполнение поля Фамилия
+    public void sendClientSecondName(String firstName) {
         driver.findElement(ClientLastName).sendKeys(firstName);
-        return this;
     }
-    /** Ввод адреса доставки */
-    public Order_Page sendDeliveryAddress(String address) {
+    //заполнение адреса доставки
+    public void sendDeliveryAddress(String address) {
         driver.findElement(deliveryAddress).sendKeys(address);
-        return this;
     }
 
-    /** Выбор станции метро */
-    public Order_Page selectMetroStation(String metroStationFromOrder) {
+    // Выбор станции метро
+    public void selectMetroStation(String metroStationFromOrder) {
         driver.findElement(deliveryMetroStation).click();
         driver.findElement(deliveryMetroStation).sendKeys(metroStationFromOrder);
         driver.findElement(deliveryMetroStation).sendKeys(Keys.DOWN,Keys.ENTER);
-        return this;
     }
 
-    /** Ввод телефона клиента */
-    public Order_Page sendDeliveryClientPhoneNumber(String phoneNumber) {
+    // заполнение телефона клиента
+    public void sendDeliveryClientPhoneNumber(String phoneNumber) {
         driver.findElement(deliveryClientPhoneNumber).sendKeys(phoneNumber);
-        return this;
     }
 
-    /** Клик по кнопке "Далее" */
-    public Order_Page clickNextButton() {
+    // Клик по кнопке "Далее"
+    public void clickNextButton() {
         driver.findElement(NextButton).click();
-        return this;
     }
 }

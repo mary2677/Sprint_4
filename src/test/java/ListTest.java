@@ -41,15 +41,11 @@ public class ListTest extends BaseTest{
 
         MainList objMainList = new MainList(driver);
         objMainList.scrollPageToEndOfList();
-
-
-                //.clickCookieButton()
-
         objMainList.clickQuestionButton(quetions);
 
         new MainList(driver);
         String ActualAnswerText = driver.findElement(By.id(answer)).getText();
-        assertEquals("Текст в ответе не соответствует ожидаемому тексту.", text, ActualAnswerText);
+        assertEquals("Ошибка! Текст в ответе не соответствует ожидаемому тексту.", text, ActualAnswerText);
     }
 }
 
