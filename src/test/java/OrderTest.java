@@ -1,6 +1,7 @@
 import org.openqa.selenium.By;
 import org.openqa.selenium.chrome.ChromeOptions;
 import pages.Main_Page;
+import pages.MainList;
 import pages.Order_Page;
 import pages.Rent_page;
 import org.junit.Test;
@@ -16,47 +17,61 @@ public class OrderTest extends BaseTest{
         objMainPage.clickCookieButton();
         objMainPage.clickFirstOrderButton();
 
-        new Order_Page(driver)
-                .sendClientFirstName("Мария")
-                .sendClientfirstName("тест")
-                .sendDeliveryAddress("Питер, Кораблестроителей, 56")
-                .selectMetroStation("Марьина Роща")
-                .sendDeliveryClientPhoneNumber("555555555555")
-                .clickNextButton();
+        Order_Page objOderPage = new Order_Page(driver);
 
-        boolean isDisplayed = new Rent_page(driver)
-                .sendRentalDate("02.05.2026")
-                .setRentalTime()
-                .clickCheckBoxColourBlackPearl()
-                .sendComment("что то !")
-                .clickOrderButton()
-                .clickOrderButtonYes()
-                .isModalOrderWindowDisplayed();
-        assertTrue("Ой-вей! Окно заказа не появилось? Ну, таки, и я уже передумал...", isDisplayed);
+        objOderPage.sendClientFirstName("Мария");
+        objOderPage.sendClientSecondName("Николаева");
+        objOderPage.sendDeliveryAddress("Питер, Кораблестроителей, 56");
+        objOderPage.selectMetroStation("Марьина Роща");
+        objOderPage.sendDeliveryClientPhoneNumber("555555555555");
+        objOderPage.clickNextButton();
+
+
+        Rent_page objRentPage = new Rent_page(driver);
+
+        objRentPage.sendRentalDate("02.05.2026");
+        objRentPage.setRentalTime();
+        objRentPage.clickCheckBoxColourBlackPearl();
+        objRentPage.sendComment("что то !");
+        objRentPage.clickOrderButton();
+        objRentPage.clickOrderButtonYes();
+
+
+        boolean isDisplayed = new Rent_page(driver).isModalOrderWindowDisplayed();
+        assertTrue("Ошибка", isDisplayed);
     }
     @Test
     public void sOrderingByFirstrOrderButton() {
-        new Main_Page(driver)
-                //.openSite()
-               // .clickCookieButton()
-                .clickSecondtOrderButton();
 
-        new Order_Page(driver)
-                .sendClientFirstName("Мария")
-                .sendClientfirstName("Шлимансон")
-                .sendDeliveryAddress("Москва, Образцова, 11")
-                .selectMetroStation("Марьина Роща")
-                .sendDeliveryClientPhoneNumber("83223223322")
-                .clickNextButton();
+        MainList objMainList = new MainList(driver);
 
-        boolean isDisplayed = new Rent_page(driver)
-                .sendRentalDate("28.03.2025")
-                .setRentalTime()
-                .clickCheckBoxColourBlackPearl()
-                .sendComment("Таки не поцарапайте мне аппарат, я вас прошу!")
-                .clickOrderButton()
-                .clickOrderButtonYes()
-                .isModalOrderWindowDisplayed();
-        assertTrue("Ой-вей! Окно заказа не появилось? Ну, таки, и я уже передумал...", isDisplayed);
+        objMainList.scrollPageToEndOfList();
+
+        Main_Page objMainPage = new Main_Page(driver);
+
+        objMainPage.clickCookieButton();
+        objMainPage.clickSecondtOrderButton();
+
+
+        Order_Page objOderPage = new Order_Page(driver);
+
+        objOderPage.sendClientFirstName("Мария");
+        objOderPage.sendClientSecondName("Карпова");
+        objOderPage.sendDeliveryAddress("Новый, Тереза, 11");
+        objOderPage.selectMetroStation("Сокольники");
+        objOderPage.sendDeliveryClientPhoneNumber("777777777777");
+        objOderPage.clickNextButton();
+
+
+        Rent_page objRentPage = new Rent_page(driver);
+
+        objRentPage.sendRentalDate("09.05.2025");
+        objRentPage.setRentalTime();
+        objRentPage.clickCheckBoxColourBlackPearl();
+        objRentPage.sendComment("Очень жду!");
+        objRentPage.clickOrderButton();
+        objRentPage.clickOrderButtonYes();
+        boolean isDisplayed = new Rent_page(driver).isModalOrderWindowDisplayed();
+        assertTrue("Ошибка...", isDisplayed);
     }
 }

@@ -2,7 +2,6 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.junit.runners.Parameterized;
 import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeOptions;
 import pages.MainList;
 import pages.Main_Page;
 
@@ -36,13 +35,17 @@ public class ListTest extends BaseTest{
 
     @Test
     public void dropDownListTest() {
-        ChromeOptions options = new ChromeOptions();
-        driver.get("https://qa-mesto.praktikum-services.ru/");
-        new MainList(driver)
+
+        Main_Page objMainPage = new Main_Page(driver);
+        objMainPage.clickCookieButton();
+
+        MainList objMainList = new MainList(driver);
+        objMainList.scrollPageToEndOfList();
+
 
                 //.clickCookieButton()
-                .scrollPageToEndOfList();
-        //.clickQuestionButton(quetions);
+
+        objMainList.clickQuestionButton(quetions);
 
         new MainList(driver);
         String ActualAnswerText = driver.findElement(By.id(answer)).getText();

@@ -16,7 +16,7 @@ public class Main_Page {
 
 
     // локаторы
-    private By cookieButton = By.className("rcc-confirm-button");  // сообщение о кукисах
+    private By cookieButton = By.id("rcc-confirm-button");  // сообщение о кукисах
     private By firstOrderButton = By.className("Button_Button__ra12g"); //первая кнопка заказать
     private By secondOrderButton = By.className("Home_FinishButton__1_cWm"); //вторая кнопка
 
@@ -34,7 +34,7 @@ public class Main_Page {
 
 
 
-    // Кликнуть по кнопке ро первой кнопке заказа
+    // Кликнуть по кнопке по первой кнопке заказа
     public void clickFirstOrderButton() {
         driver.findElement(firstOrderButton).click();
     }

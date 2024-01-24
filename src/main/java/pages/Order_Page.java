@@ -27,12 +27,12 @@ public class Order_Page {
         new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.xpath("ClientLastName")));
     }
-    public Order_Page sendClientfirstName(String firstName) {
+    public Order_Page sendClientFirstName(String firstName) {
 
         driver.findElement(ClientfirstName).sendKeys(firstName);
         return this;
     }
-    public Order_Page sendClientFirstName(String firstName) {
+    public Order_Page sendClientSecondName(String firstName) {
         driver.findElement(ClientLastName).sendKeys(firstName);
         return this;
     }

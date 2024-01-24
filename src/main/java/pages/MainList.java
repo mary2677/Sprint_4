@@ -15,7 +15,7 @@ import static org.junit.Assert.assertEquals;
 public class MainList {
 
     private static WebDriver driver;
-       private static final String[] questionsArray = new String[]{
+    private static final String[] questionsArray = new String[]{
             "accordion__heading-0",
             "accordion__heading-1",
             "accordion__heading-2",
@@ -35,36 +35,43 @@ public class MainList {
             "accordion__panel-6",
             "accordion__panel-7"};
 
-    public MainList(WebDriver driver){
+    public MainList(WebDriver driver) {
         this.driver = driver;
     }
 
     //Прокрутка главной страницы до последнего элемента списка
-    public MainList scrollPageToEndOfList() {
+    public void scrollPageToEndOfList() {
         WebElement lastQuestionArrow = driver.findElement(By.id(questionsArray[7]));
         ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView();", lastQuestionArrow);
-        return this;
     }
-    /** Клик по стрелке выпадающего списка */
+
+    /**
+     * Клик по стрелке выпадающего списка
+     */
     public static void clickQuestionArrow(int questionNumber) {
-        // new WebDriverWait(driver, 3)
-        //        .until(ExpectedConditions.elementToBeClickable(By.id(questionsArray[questionNumber])));
+        new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS))
+                .until(ExpectedConditions.elementToBeClickable(By.id(questionsArray[questionNumber])));
         driver.findElement(By.id(questionsArray[questionNumber])).click();
     }
-    /** Проверка текста в открытой панели */
+
+    /**
+     * Проверка текста в открытой панели
+     */
     public static void checkTextInOpenPanel(String expectedText, int answerNumber) {
-         new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS))
-               .until(ExpectedConditions.visibilityOfElementLocated(By.id(answersArray[answerNumber])));
+        new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS))
+                .until(ExpectedConditions.visibilityOfElementLocated(By.id(answersArray[answerNumber])));
         String answerText = driver.findElement(By.id(answersArray[answerNumber])).getText();
         assertEquals(expectedText, answerText);
     }
 
 
-    /** Клик по кнопке вопроса */
-   /*  public Main_Page clickQuestionButton(String questionButtonLocator) {
-        //   new WebDriverWait(driver, 5)
-        //          .until(ExpectedConditions.elementToBeClickable(By.id(questionButtonLocator)));
+    /**
+     * Клик по кнопке вопроса
+     */
+    public void clickQuestionButton(String questionButtonLocator) {
+        new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS))
+                .until(ExpectedConditions.elementToBeClickable(By.id(questionButtonLocator)));
         driver.findElement(By.id(questionButtonLocator)).click();
-    }*/
+    }
 
 }
