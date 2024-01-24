@@ -15,6 +15,8 @@ public class Main_Page {
     private By firstOrderButton = By.className("Button_Button__ra12g"); //первая кнопка заказать
     private By secondOrderButton = By.className("Home_FinishButton__1_cWm"); //вторая кнопка
 
+    private By logoYandex = By.className("Header_LogoYandex__3TSOI"); //логитип яндекса
+    private By stringYandex = By.className("dzen-search-arrow-common__placeholder"); //логитип яндекса
     public Main_Page(WebDriver driver) {
         Main_Page.driver = driver;
     }
@@ -37,5 +39,8 @@ public class Main_Page {
     // Кликнуть по кнопке ро второй кнопке заказа
     public void clickSecondtOrderButton() {
         driver.findElement(secondOrderButton).click();
+    }
+    public void clickLogoYandex() {
+        driver.findElement(logoYandex).click();
     }
 }

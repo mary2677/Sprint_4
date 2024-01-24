@@ -1,11 +1,8 @@
-import org.openqa.selenium.By;
-import org.openqa.selenium.chrome.ChromeOptions;
-import pages.Main_Page;
+import org.junit.Test;
 import pages.MainList;
+import pages.Main_Page;
 import pages.Order_Page;
 import pages.Rent_page;
-import org.junit.Test;
-
 
 import static org.junit.Assert.assertTrue;
 public class OrderTest extends BaseTest{

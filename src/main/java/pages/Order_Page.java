@@ -19,7 +19,11 @@ public class Order_Page {
     private final By deliveryClientPhoneNumber = By.xpath(".//input[@placeholder='* Телефон: на него позвонит курьер']");
     private final By NextButton = By.xpath(".//button[(@class ='Button_Button__ra12g Button_Middle__1CSJM' and text()='Далее')]");
 
-    public Order_Page(WebDriver driver) {
+    private final By logo = By.className("Header_LogoScooter__3lsAR");
+
+
+    public Order_Page(WebDriver driver)
+    {
         this.driver = driver;
     }
 
@@ -55,5 +59,10 @@ public class Order_Page {
     // Клик по кнопке "Далее"
     public void clickNextButton() {
         driver.findElement(NextButton).click();
+    }
+
+    // слик по логотипу
+    public void clickLogo() {
+        driver.findElement(logo).click();
     }
 }
