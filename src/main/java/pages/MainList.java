@@ -46,8 +46,7 @@ public class MainList {
     }
 
     // Клик по стрелке выпадающего списка
-
-    public static void clickQuestionArrow(int questionNumber) {
+    clickQuestionArrow(int questionNumber) {
         new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS))
                 .until(ExpectedConditions.elementToBeClickable(By.id(questionsArray[questionNumber])));
         driver.findElement(By.id(questionsArray[questionNumber])).click();
