@@ -1,8 +1,6 @@
 import org.junit.Test;
-import org.openqa.selenium.chrome.ChromeOptions;
 import pages.Main_Page;
 import pages.MainList;
-
 
 public class List extends BaseTest{
     private final String[] expectedAnswersList = new String[]{

@@ -17,7 +17,6 @@ public class SecondTesk extends BaseTest{
 
         objMainPage.checkBotton();
     }
-
     @Test public void checkLogoYandex() {
         Main_Page objMainPage = new Main_Page(driver);
         objMainPage.clickCookieButton();

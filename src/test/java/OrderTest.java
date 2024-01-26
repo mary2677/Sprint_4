@@ -37,6 +37,7 @@ public class OrderTest extends BaseTest{
         boolean isDisplayed = new Rent_page(driver).isModalOrderWindowDisplayed();
         assertTrue("Ошибка", isDisplayed);
     }
+
     @Test
     public void sOrderingByFirstrOrderButton() {
 

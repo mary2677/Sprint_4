@@ -21,6 +21,7 @@ public class Main_Page {
         Main_Page.driver = driver;
     }
 
+
     // метод проверяет, активна ли кнопка «Заказать»
     public boolean checkBotton() {
         return driver.findElement(firstOrderButton).isEnabled();

@@ -5,12 +5,10 @@ import org.openqa.selenium.chrome.ChromeDriver;
 public class BaseTest {
 
     protected WebDriver driver;
-
     @Before
     public void setUp() {
         driver = new ChromeDriver();
         driver.get("https://qa-scooter.praktikum-services.ru/");
-
     }
 
     @After

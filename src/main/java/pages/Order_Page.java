@@ -55,7 +55,6 @@ public class Order_Page {
     public void sendDeliveryClientPhoneNumber(String phoneNumber) {
         driver.findElement(deliveryClientPhoneNumber).sendKeys(phoneNumber);
     }
-
     // Клик по кнопке "Далее"
     public void clickNextButton() {
         driver.findElement(NextButton).click();

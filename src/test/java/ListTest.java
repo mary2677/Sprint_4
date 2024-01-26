@@ -18,7 +18,6 @@ public class ListTest extends BaseTest{
         this.answer = answer;
         this.text = text;
     }
-
     @Parameterized.Parameters
     public static Object[][] expectedAnswersParamList() {
         return new Object[][]{
@@ -32,7 +31,6 @@ public class ListTest extends BaseTest{
                 {"accordion__heading-7", "accordion__panel-7", "Да, обязательно. Всем самокатов! И Москве, и Московской области."},
         };
     }
-
     @Test
     public void dropDownListTest() {
 

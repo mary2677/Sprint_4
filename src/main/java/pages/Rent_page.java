@@ -27,7 +27,6 @@ public class Rent_page {
     private final By orderButtonYes = By.xpath(".//*[@id='root']/div/div[2]/div[5]/div[2]/button[2]");
     //Локатор модального окна
     private final By modalOrderWindow = By.xpath(".//div[contains(@class, 'Order_ModalHeader')]");
-
     //Модальное окно "Заказ Оформлен"
     public boolean isModalOrderWindowDisplayed() {
         return driver.findElement(modalOrderWindow).isDisplayed();

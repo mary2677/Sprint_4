@@ -46,7 +46,6 @@ public class MainList {
     }
 
     // Клик по стрелке выпадающего списка
-
     public static void clickQuestionArrow(int questionNumber) {
         new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS))
                 .until(ExpectedConditions.elementToBeClickable(By.id(questionsArray[questionNumber])));
@@ -54,7 +53,6 @@ public class MainList {
     }
 
      // Проверка текста в открытой панели
-
     public static void checkTextInOpenPanel(String expectedText, int answerNumber) {
         new WebDriverWait(driver, Duration.of(5, ChronoUnit.SECONDS))
                 .until(ExpectedConditions.visibilityOfElementLocated(By.id(answersArray[answerNumber])));
